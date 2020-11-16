@@ -14,13 +14,10 @@ SOURCES  := $(wildcard $(SRCDIR)/*.c)
 INCLUDES := $(wildcard $(SRCDIR)/*.h)
 OBJECTS  := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
-LIBRARIES= -lpaho-mqtt3c -lpaho-mqtt3a
+LIBRARIES= -lpaho-mqtt3c -lpaho-mqtt3a -lpaho-mqtt3as
 
-$(BINDIR)/$(TARGET): $(OBJECTS)
-	$(LINKER) $(LIBRARIES) $(OBJECTS) $(LFLAGS) -o $@
-
-$(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(BINDIR)/$(TARGET): $(SOURCES) $(INCLUDES)
+	$(LINKER) -o $@ $(SOURCES) $(LIBRARIES)
 
 clean:
 	$(RM) $(OBJECTS)
