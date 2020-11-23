@@ -17,7 +17,7 @@ OBJECTS  := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 LIBRARIES= -lpaho-mqtt3c -lpaho-mqtt3a -lpaho-mqtt3as
 
 $(BINDIR)/$(TARGET): $(SOURCES) $(INCLUDES)
-	$(LINKER) -o $@ $(SOURCES) $(LIBRARIES)
+	$(LINKER) -o $@ $(SOURCES) $(CFLAGS) $(LIBRARIES)
 
 clean:
 	$(RM) $(OBJECTS)
