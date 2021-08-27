@@ -1,3 +1,3 @@
-# Lab 7
+# MQTT Client
 
-http://ecenetworking.byu.edu/493r/labs/lab-7/
+https://ecenetworking.byu.edu/426/labs/mqtt-client/
